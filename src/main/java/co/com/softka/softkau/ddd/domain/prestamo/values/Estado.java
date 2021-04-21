@@ -1,8 +1,8 @@
-package co.com.softka.softkau.ddd.domain.solicitante.values;
+package co.com.softka.softkau.ddd.domain.prestamo.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
-public class Estado  implements ValueObject<Boolean> {
+public class Estado implements ValueObject<Boolean> {
     private  final Boolean value;
 
     public Estado(Boolean value) {
@@ -13,4 +13,5 @@ public class Estado  implements ValueObject<Boolean> {
     public Boolean value() {
         return value;
     }
+
 }
