@@ -2,15 +2,17 @@ package co.com.softka.softkau.ddd.domain.solicitante.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
-public class FechaSancion implements ValueObject<String> {
-    private final String value;
+import java.util.Calendar;
 
-    public FechaSancion(String value) {
+public class FechaSancion implements ValueObject<Calendar> {
+    private final Calendar value;
+
+    public FechaSancion(Calendar value) {
         this.value = value;
     }
 
     @Override
-    public String value() {
+    public Calendar value() {
         return null;
     }
 }
