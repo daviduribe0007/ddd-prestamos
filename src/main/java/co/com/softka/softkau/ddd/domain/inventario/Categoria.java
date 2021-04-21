@@ -3,7 +3,7 @@ package co.com.softka.softkau.ddd.domain.inventario;
 import co.com.sofka.domain.generic.Entity;
 import co.com.softka.softkau.ddd.domain.inventario.values.*;
 
-public class Categoria extends Entity<CategoriaId> {}
+public class Categoria extends Entity<CategoriaId> {
 
     private final Tipo tipo;
     private final Descripcion descripcion;
