@@ -1,4 +1,4 @@
-package co.com.softka.softkau.ddd.domain.solicitante.events;
+package co.com.softka.softkau.ddd.domain.solicitante.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
