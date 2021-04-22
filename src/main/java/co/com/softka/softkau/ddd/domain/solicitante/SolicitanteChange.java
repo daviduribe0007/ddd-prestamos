@@ -1,6 +1,7 @@
 package co.com.softka.softkau.ddd.domain.solicitante;
 
 import co.com.sofka.domain.generic.EventChange;
+import co.com.softka.softkau.ddd.domain.solicitante.events.BajoPrioridad;
 import co.com.softka.softkau.ddd.domain.solicitante.events.SolicitanteCreado;
 import co.com.softka.softkau.ddd.domain.solicitante.events.SubioPrioridad;
 
@@ -17,6 +18,12 @@ public class SolicitanteChange extends EventChange {
         apply((SubioPrioridad event) ->{
             if(solicitante.identity().equals(event.entityId())){
                 solicitante.prioridad = event.prioridad().aumentar();
+            }
+        });
+
+        apply((BajoPrioridad event) ->{
+            if(solicitante.identity().equals(event.entityId())){
+                solicitante.prioridad = event.prioridad().disminuir();
             }
         });
 

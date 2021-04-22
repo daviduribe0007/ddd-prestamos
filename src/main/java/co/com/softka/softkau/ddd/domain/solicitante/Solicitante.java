@@ -2,6 +2,7 @@ package co.com.softka.softkau.ddd.domain.solicitante;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
+import co.com.softka.softkau.ddd.domain.solicitante.events.BajoPrioridad;
 import co.com.softka.softkau.ddd.domain.solicitante.events.SolicitanteCreado;
 import co.com.softka.softkau.ddd.domain.solicitante.events.SubioPrioridad;
 import co.com.softka.softkau.ddd.domain.solicitante.values.*;
@@ -33,6 +34,9 @@ public class Solicitante extends AggregateEvent<SolicitanteId> {
 
     public void subirPrioridad(SolicitanteId entityId,Prioridad prioridad){
         appendChange(new SubioPrioridad(entityId,prioridad)).apply();
+    }
+    public void bajarPrioridad(SolicitanteId entityId,Prioridad prioridad){
+        appendChange(new BajoPrioridad(entityId,prioridad)).apply();
     }
 
 
