@@ -12,7 +12,8 @@ public class SolicitanteCreado extends DomainEvent {
     private final Prioridad prioridad;
     private final FechaSancion fechaSancion;
 
-    public SolicitanteCreado( Nombre nombre, Estado estado, Prioridad prioridad, FechaSancion fechaSancion) {
+    public SolicitanteCreado( Nombre nombre, Estado estado, Prioridad prioridad,
+                              FechaSancion fechaSancion) {
         super("ddd.solicitante.creado");
         this.nombre = nombre;
         this.estado = estado;

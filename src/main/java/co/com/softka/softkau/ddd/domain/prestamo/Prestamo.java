@@ -2,6 +2,7 @@ package co.com.softka.softkau.ddd.domain.prestamo;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.softka.softkau.ddd.domain.inventario.values.InventarioId;
+import co.com.softka.softkau.ddd.domain.prestamo.events.PrestamoCreado;
 import co.com.softka.softkau.ddd.domain.prestamo.values.Estado;
 import co.com.softka.softkau.ddd.domain.prestamo.values.FechaCancelacion;
 import co.com.softka.softkau.ddd.domain.prestamo.values.FechaPrestamo;
@@ -16,11 +17,11 @@ public class Prestamo extends AggregateEvent<PrestamoId> {
     protected FechaPrestamo fechaPrestamo;
     protected FechaCancelacion fechaCancelacion;
 
-    public Prestamo(PrestamoId entityId, InventarioId inventarioId, SolicitanteId solicitanteId, Estado estado, FechaCancelacion fechaCancelacion) {
+    public Prestamo(PrestamoId entityId, InventarioId inventarioId, SolicitanteId solicitanteId,
+                    Estado estado, FechaPrestamo fechaPrestamo, FechaCancelacion fechaCancelacion) {
         super(entityId);
-        this.inventarioId = inventarioId;
-        this.solicitanteId = solicitanteId;
-        this.estado = estado;
-        this.fechaCancelacion = fechaCancelacion;
+        appendChange(new PrestamoCreado(inventarioId,solicitanteId,estado,fechaPrestamo,fechaCancelacion)).apply();
     }
+
+
 }
