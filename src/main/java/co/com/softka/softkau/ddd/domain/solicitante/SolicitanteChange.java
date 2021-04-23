@@ -2,6 +2,7 @@ package co.com.softka.softkau.ddd.domain.solicitante;
 
 import co.com.sofka.domain.generic.EventChange;
 import co.com.softka.softkau.ddd.domain.solicitante.events.PrioridadBajada;
+import co.com.softka.softkau.ddd.domain.solicitante.events.SancionAsignada;
 import co.com.softka.softkau.ddd.domain.solicitante.events.SolicitanteCreado;
 import co.com.softka.softkau.ddd.domain.solicitante.events.PrioridadSubida;
 
@@ -21,6 +22,10 @@ public class SolicitanteChange extends EventChange {
 
         apply((PrioridadBajada event) -> {
             solicitante.prioridad = event.prioridad().disminuir();
+        });
+
+        apply((SancionAsignada event) -> {
+            solicitante.fechaSancion = event.fechaSancion();
         });
     }
 }
