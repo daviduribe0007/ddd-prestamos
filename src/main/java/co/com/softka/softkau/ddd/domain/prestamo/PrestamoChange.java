@@ -9,7 +9,8 @@ public class PrestamoChange extends EventChange {
         apply((PrestamoCreado event) -> {
             prestamo.inventarioMap = event.inventarioMap();
             prestamo.solicitanteId = event.solicitanteId();
-            prestamo.estado = event.estado();
+            prestamo.estadoPrestamo = event.estado();
+            prestamo.entregado = event.entregado();
             prestamo.fechaPrestamo = event.fechaPrestamo();
             prestamo.fechaCancelacion = event.fechaCancelacion();
         });
