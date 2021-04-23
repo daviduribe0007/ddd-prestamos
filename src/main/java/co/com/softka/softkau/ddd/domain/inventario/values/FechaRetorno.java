@@ -9,6 +9,9 @@ public class FechaRetorno implements ValueObject<Calendar> {
 
     public FechaRetorno(Calendar value) {
         this.value = value;
+        if (0 <= this.value.getTime().compareTo(Calendar.getInstance().getTime())) {
+            throw new IllegalArgumentException("El valor de la fecha de retorno no puede ser anterior a la fecha presente");
+        }
     }
 
     @Override
