@@ -11,7 +11,8 @@ import co.com.softka.softkau.ddd.domain.solicitante.values.SolicitanteId;
 
 import java.util.Map;
 
-public class PrestamoCreado extends DomainEvent {
+public class PrestamoSolicitado extends DomainEvent {
+
     private final Map<InventarioId, Inventario> inventarioMap;
     private final SolicitanteId solicitanteId;
     private final EstadoPrestamo estadoPrestamo;
@@ -19,12 +20,12 @@ public class PrestamoCreado extends DomainEvent {
     private final FechaPrestamo fechaPrestamo;
     private final FechaCancelacion fechaCancelacion;
 
-    public PrestamoCreado(Map<InventarioId, Inventario> inventarioMap, SolicitanteId solicitanteId,
-                          EstadoPrestamo estadoPrestamo, Entregado entregado,
-                          FechaPrestamo fechaPrestamo, FechaCancelacion fechaCancelacion) {
-        super("ddd.prestamo.creado");
 
-        this.inventarioMap = inventarioMap;
+    public PrestamoSolicitado(Map<InventarioId, Inventario> inventarioId, SolicitanteId solicitanteId,
+                              EstadoPrestamo estadoPrestamo, Entregado entregado,
+                              FechaPrestamo fechaPrestamo, FechaCancelacion fechaCancelacion) {
+        super("ddd.prestamo.solicitado");
+        this.inventarioMap = inventarioId;
         this.solicitanteId = solicitanteId;
         this.estadoPrestamo = estadoPrestamo;
         this.entregado = entregado;
@@ -36,16 +37,16 @@ public class PrestamoCreado extends DomainEvent {
         return inventarioMap;
     }
 
+    public Entregado entregado() {
+        return entregado;
+    }
+
     public SolicitanteId solicitanteId() {
         return solicitanteId;
     }
 
     public EstadoPrestamo estadoPrestamo() {
         return estadoPrestamo;
-    }
-
-    public Entregado entregado() {
-        return entregado;
     }
 
     public FechaPrestamo fechaPrestamo() {
