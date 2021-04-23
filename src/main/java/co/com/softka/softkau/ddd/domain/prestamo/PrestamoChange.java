@@ -2,6 +2,7 @@ package co.com.softka.softkau.ddd.domain.prestamo;
 
 import co.com.sofka.domain.generic.EventChange;
 import co.com.softka.softkau.ddd.domain.prestamo.events.PrestamoCreado;
+import co.com.softka.softkau.ddd.domain.prestamo.events.PrestamoRetornado;
 import co.com.softka.softkau.ddd.domain.prestamo.events.PrestamoSolicitado;
 
 public class PrestamoChange extends EventChange {
@@ -13,7 +14,7 @@ public class PrestamoChange extends EventChange {
             prestamo.estadoPrestamo = event.estadoPrestamo();
             prestamo.entregado = event.entregado();
             prestamo.fechaPrestamo = event.fechaPrestamo();
-            prestamo.fechaCancelacion = event.fechaCancelacion();
+            prestamo.fechaRetorno = event.fechaRetorno();
         });
 
         apply((PrestamoCreado event) -> {
@@ -22,8 +23,15 @@ public class PrestamoChange extends EventChange {
             prestamo.estadoPrestamo = event.estadoPrestamo();
             prestamo.entregado = event.entregado();
             prestamo.fechaPrestamo = event.fechaPrestamo();
-            prestamo.fechaCancelacion = event.fechaCancelacion();
+            prestamo.fechaRetorno = event.fechaRetorno();
         });
+
+        apply((PrestamoRetornado event) ->{
+            prestamo.estadoPrestamo = event.estadoPrestamo();
+            prestamo.entregado = event.entregado();
+            prestamo.fechaRetorno = event.fechaRetorno();
+        });
+
 
 
     }

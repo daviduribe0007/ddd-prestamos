@@ -5,7 +5,7 @@ import co.com.softka.softkau.ddd.domain.inventario.Inventario;
 import co.com.softka.softkau.ddd.domain.inventario.values.InventarioId;
 import co.com.softka.softkau.ddd.domain.prestamo.values.Entregado;
 import co.com.softka.softkau.ddd.domain.prestamo.values.EstadoPrestamo;
-import co.com.softka.softkau.ddd.domain.prestamo.values.FechaCancelacion;
+import co.com.softka.softkau.ddd.domain.prestamo.values.FechaRetorno;
 import co.com.softka.softkau.ddd.domain.prestamo.values.FechaPrestamo;
 import co.com.softka.softkau.ddd.domain.solicitante.values.SolicitanteId;
 
@@ -18,19 +18,19 @@ public class PrestamoSolicitado extends DomainEvent {
     private final EstadoPrestamo estadoPrestamo;
     private final Entregado entregado;
     private final FechaPrestamo fechaPrestamo;
-    private final FechaCancelacion fechaCancelacion;
+    private final FechaRetorno fechaRetorno;
 
 
     public PrestamoSolicitado(Map<InventarioId, Inventario> inventarioId, SolicitanteId solicitanteId,
                               EstadoPrestamo estadoPrestamo, Entregado entregado,
-                              FechaPrestamo fechaPrestamo, FechaCancelacion fechaCancelacion) {
+                              FechaPrestamo fechaPrestamo, FechaRetorno fechaRetorno) {
         super("ddd.prestamo.solicitado");
         this.inventarioMap = inventarioId;
         this.solicitanteId = solicitanteId;
         this.estadoPrestamo = estadoPrestamo;
         this.entregado = entregado;
         this.fechaPrestamo = fechaPrestamo;
-        this.fechaCancelacion = fechaCancelacion;
+        this.fechaRetorno = fechaRetorno;
     }
 
     public Map<InventarioId, Inventario> inventarioMap() {
@@ -53,7 +53,7 @@ public class PrestamoSolicitado extends DomainEvent {
         return fechaPrestamo;
     }
 
-    public FechaCancelacion fechaCancelacion() {
-        return fechaCancelacion;
+    public FechaRetorno fechaRetorno() {
+        return fechaRetorno;
     }
 }
