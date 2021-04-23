@@ -16,6 +16,6 @@ public class FechaRetorno implements ValueObject<Calendar> {
 
     @Override
     public Calendar value() {
-        return null;
+        return value;
     }
 }
