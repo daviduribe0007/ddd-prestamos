@@ -7,6 +7,7 @@ import co.com.softka.softkau.ddd.domain.inventario.values.InventarioId;
 import co.com.softka.softkau.ddd.domain.prestamo.events.PrestamoCreado;
 import co.com.softka.softkau.ddd.domain.prestamo.events.PrestamoRetornado;
 import co.com.softka.softkau.ddd.domain.prestamo.events.PrestamoSolicitado;
+import co.com.softka.softkau.ddd.domain.prestamo.events.SolicitudPrestamoCancelado;
 import co.com.softka.softkau.ddd.domain.prestamo.values.*;
 import co.com.softka.softkau.ddd.domain.solicitante.values.SolicitanteId;
 
@@ -49,6 +50,9 @@ public class Prestamo extends AggregateEvent<PrestamoId> {
 
     public void retornarPrestamo(EstadoPrestamo estadoPrestamo,Entregado entregado, FechaRetorno fechaRetorno){
         appendChange(new PrestamoRetornado(estadoPrestamo,entregado,fechaRetorno)).apply();
+    }
+    public void cancelarSolicitudPrestamo(EstadoPrestamo estadoPrestamo){
+        appendChange(new SolicitudPrestamoCancelado(estadoPrestamo)).apply();
     }
 
 
