@@ -11,7 +11,6 @@ public class Implemento extends Entity<ImplementoId> {
     private final Descripcion descripcion;
     private final CodigoBarras codigoBarras;
     private EstadoImplemento estadoImplemento;
-    private final TiempoPrestamo tiempoPrestamo;
     private  FechaRetorno fechaRetorno;
     private final Extraible extraible;
     private Prestamo prestamo;
@@ -24,7 +23,6 @@ public class Implemento extends Entity<ImplementoId> {
         this.descripcion = descripcion;
         this.codigoBarras = codigoBarras;
         this.estadoImplemento = estadoImplemento;
-        this.tiempoPrestamo = tiempoPrestamo;
         this.fechaRetorno = fechaRetorno;
         this.extraible = extraible;
         this.prestamo = prestamo;

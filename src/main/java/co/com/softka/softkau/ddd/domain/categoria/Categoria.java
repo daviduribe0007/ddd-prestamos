@@ -3,12 +3,14 @@ package co.com.softka.softkau.ddd.domain.categoria;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.softka.softkau.ddd.domain.categoria.events.CategoriaCreada;
+import co.com.softka.softkau.ddd.domain.categoria.events.ImplementoPrestado;
 import co.com.softka.softkau.ddd.domain.categoria.events.ImplementoSolicitado;
 import co.com.softka.softkau.ddd.domain.categoria.values.ImplementoId;
 import co.com.softka.softkau.ddd.domain.categoria.values.Descripcion;
 import co.com.softka.softkau.ddd.domain.categoria.values.CategoriaId;
 import co.com.softka.softkau.ddd.domain.categoria.values.Prestamo;
 
+import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 
@@ -40,8 +42,8 @@ public class Categoria extends AggregateEvent<CategoriaId> {
 
     }
 
-    public void prestarImplemento(){
-
+    public void prestarImplemento(ImplementoId implementoId, boolean prestamo, Calendar fechaRetorno){
+        appendChange( new ImplementoPrestado(implementoId,prestamo,fechaRetorno)).apply();
     }
 
 
