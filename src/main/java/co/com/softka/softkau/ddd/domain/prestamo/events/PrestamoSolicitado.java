@@ -1,8 +1,8 @@
 package co.com.softka.softkau.ddd.domain.prestamo.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.softka.softkau.ddd.domain.inventario.Inventario;
-import co.com.softka.softkau.ddd.domain.inventario.values.InventarioId;
+import co.com.softka.softkau.ddd.domain.inventario.Categoria;
+import co.com.softka.softkau.ddd.domain.inventario.values.CategoriaId;
 import co.com.softka.softkau.ddd.domain.prestamo.values.Entregado;
 import co.com.softka.softkau.ddd.domain.prestamo.values.EstadoPrestamo;
 import co.com.softka.softkau.ddd.domain.prestamo.values.FechaRetorno;
@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class PrestamoSolicitado extends DomainEvent {
 
-    private final Map<InventarioId, Inventario> inventarioMap;
+    private final Map<CategoriaId, Categoria> inventarioMap;
     private final SolicitanteId solicitanteId;
     private final EstadoPrestamo estadoPrestamo;
     private final Entregado entregado;
@@ -21,7 +21,7 @@ public class PrestamoSolicitado extends DomainEvent {
     private final FechaRetorno fechaRetorno;
 
 
-    public PrestamoSolicitado(Map<InventarioId, Inventario> inventarioId, SolicitanteId solicitanteId,
+    public PrestamoSolicitado(Map<CategoriaId, Categoria> inventarioId, SolicitanteId solicitanteId,
                               EstadoPrestamo estadoPrestamo, Entregado entregado,
                               FechaPrestamo fechaPrestamo, FechaRetorno fechaRetorno) {
         super("ddd.prestamo.solicitado");
@@ -33,7 +33,7 @@ public class PrestamoSolicitado extends DomainEvent {
         this.fechaRetorno = fechaRetorno;
     }
 
-    public Map<InventarioId, Inventario> inventarioMap() {
+    public Map<CategoriaId, Categoria> inventarioMap() {
         return inventarioMap;
     }
 

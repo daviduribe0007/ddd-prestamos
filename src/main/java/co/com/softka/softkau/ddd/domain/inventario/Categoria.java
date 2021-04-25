@@ -1,30 +1,40 @@
 package co.com.softka.softkau.ddd.domain.inventario;
 
-import co.com.sofka.domain.generic.Entity;
-import co.com.softka.softkau.ddd.domain.inventario.values.*;
+import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
+import co.com.softka.softkau.ddd.domain.inventario.events.CategoriaCreada;
+import co.com.softka.softkau.ddd.domain.inventario.values.ImplementoId;
+import co.com.softka.softkau.ddd.domain.inventario.values.Descripcion;
+import co.com.softka.softkau.ddd.domain.inventario.values.CategoriaId;
 
-public class Categoria extends Entity<CategoriaId> {
+import java.util.List;
+import java.util.Map;
 
-    private final Tipo tipo;
-    private final Descripcion descripcion;
-    private final CodigoBarras codigoBarras;
-    private final EstadoRecurso estadoRecurso;
-    private final TiempoPrestamo tiempoPrestamo;
-    private final FechaRetorno fechaRetorno;
-    private final Extraible extraible;
+public class Categoria extends AggregateEvent<CategoriaId> {
 
-    public Categoria(CategoriaId entityId, Tipo tipo, Descripcion descripcion, CodigoBarras codigoBarras,
-                     EstadoRecurso estadoRecurso, TiempoPrestamo tiempoPrestamo, FechaRetorno fechaRetorno,
-                     Extraible extraible) {
+    protected Map<ImplementoId, Implemento> implementos;
+    protected  Descripcion descripcion;
+
+    public Categoria(CategoriaId entityId, Map<ImplementoId, Implemento> implementos, Descripcion descripcion) {
         super(entityId);
-        this.tipo = tipo;
-        this.descripcion = descripcion;
-        this.codigoBarras = codigoBarras;
-        this.estadoRecurso = estadoRecurso;
-        this.tiempoPrestamo = tiempoPrestamo;
-        this.fechaRetorno = fechaRetorno;
-        this.extraible = extraible;
+        appendChange( new CategoriaCreada(implementos,descripcion)).apply();
     }
+
+
+
+    private Categoria(CategoriaId entityId) {
+        super(entityId);
+        subscribe(new CategoriaChange(this));
+    }
+
+    public static Categoria from(CategoriaId entityId, List<DomainEvent> events) {
+        var categoria= new Categoria(entityId);
+        events.forEach(categoria::applyEvent);
+        return categoria;
+    }
+
+
+
 
 
 }
