@@ -9,13 +9,13 @@ public class ImplementoPrestado extends DomainEvent {
 
     private final ImplementoId implementoId;
     private final boolean prestamo;
-    private final Calendar fechaRetorno;
+    private final Calendar fechaRiempoPrestamo;
 
-    public ImplementoPrestado(ImplementoId implementoId, boolean prestamo, Calendar fechaRetorno) {
+    public ImplementoPrestado(ImplementoId implementoId, boolean prestamo, Calendar fechaRiempoPrestamo) {
         super("ddd.categoria.implementoprestado");
         this.implementoId = implementoId;
         this.prestamo = prestamo;
-        this.fechaRetorno = fechaRetorno;
+        this.fechaRiempoPrestamo = fechaRiempoPrestamo;
     }
 
     public ImplementoId implementoId() {
@@ -26,7 +26,7 @@ public class ImplementoPrestado extends DomainEvent {
         return prestamo;
     }
 
-    public Calendar fechaRetorno() {
-        return fechaRetorno;
+    public Calendar fechaTiempoPrestamo() {
+        return fechaRiempoPrestamo;
     }
 }

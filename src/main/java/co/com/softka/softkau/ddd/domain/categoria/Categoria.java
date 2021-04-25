@@ -4,11 +4,9 @@ import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.softka.softkau.ddd.domain.categoria.events.CategoriaCreada;
 import co.com.softka.softkau.ddd.domain.categoria.events.ImplementoPrestado;
+import co.com.softka.softkau.ddd.domain.categoria.events.ImplementoRetornado;
 import co.com.softka.softkau.ddd.domain.categoria.events.ImplementoSolicitado;
-import co.com.softka.softkau.ddd.domain.categoria.values.ImplementoId;
-import co.com.softka.softkau.ddd.domain.categoria.values.Descripcion;
-import co.com.softka.softkau.ddd.domain.categoria.values.CategoriaId;
-import co.com.softka.softkau.ddd.domain.categoria.values.Prestamo;
+import co.com.softka.softkau.ddd.domain.categoria.values.*;
 
 import java.util.Calendar;
 import java.util.List;
@@ -42,14 +40,14 @@ public class Categoria extends AggregateEvent<CategoriaId> {
 
     }
 
-    public void prestarImplemento(ImplementoId implementoId, boolean prestamo, Calendar fechaRetorno){
-        appendChange( new ImplementoPrestado(implementoId,prestamo,fechaRetorno)).apply();
+    public void prestarImplemento(ImplementoId implementoId, boolean prestamo, Calendar fechaTiempoPrestamo){
+        appendChange( new ImplementoPrestado(implementoId,prestamo,fechaTiempoPrestamo)).apply();
     }
 
 
 
-    public void retornarImplemento(){
-
+    public void retornarImplemento(ImplementoId implementoId, String estadoImplemento, boolean prestamo, Calendar fechaRetorno){
+        appendChange( new ImplementoRetornado(implementoId,estadoImplemento,prestamo,fechaRetorno)).apply();
     }
 
 

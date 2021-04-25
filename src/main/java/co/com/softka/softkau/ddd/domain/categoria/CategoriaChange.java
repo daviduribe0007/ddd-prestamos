@@ -3,6 +3,7 @@ package co.com.softka.softkau.ddd.domain.categoria;
 import co.com.sofka.domain.generic.EventChange;
 import co.com.softka.softkau.ddd.domain.categoria.events.CategoriaCreada;
 import co.com.softka.softkau.ddd.domain.categoria.events.ImplementoPrestado;
+import co.com.softka.softkau.ddd.domain.categoria.events.ImplementoRetornado;
 import co.com.softka.softkau.ddd.domain.categoria.events.ImplementoSolicitado;
 
 public class CategoriaChange extends EventChange {
@@ -22,7 +23,16 @@ public class CategoriaChange extends EventChange {
             categoria.implementos.get(event.implementoId())
                     .cambiarEstadoPrestamo(event.prestamo());
             categoria.implementos.get(event.implementoId())
+                    .cambiarFechaTiempoPrestamo(event.fechaTiempoPrestamo());
+        });
+
+        apply((ImplementoRetornado event) -> {
+            categoria.implementos.get(event.implementoId())
+                    .cambiarEstadoPrestamo(event.prestamo());
+            categoria.implementos.get(event.implementoId())
                     .cambiarFechaRetorno(event.fechaRetorno());
+            categoria.implementos.get(event.implementoId())
+                    .cambiarEstadoImplemento(event.estadoImplemento());
         });
 
 
