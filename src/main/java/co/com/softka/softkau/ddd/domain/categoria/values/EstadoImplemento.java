@@ -1,13 +1,13 @@
-package co.com.softka.softkau.ddd.domain.inventario.values;
+package co.com.softka.softkau.ddd.domain.categoria.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class EstadoRecurso implements ValueObject<String> {
+public class EstadoImplemento implements ValueObject<String> {
     private final String value;
 
-    public EstadoRecurso(String value) {
+    public EstadoImplemento(String value) {
         this.value = Objects.requireNonNull(value);
     }
 

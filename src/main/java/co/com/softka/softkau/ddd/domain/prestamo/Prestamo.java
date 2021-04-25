@@ -2,8 +2,8 @@ package co.com.softka.softkau.ddd.domain.prestamo;
 
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.softka.softkau.ddd.domain.inventario.Categoria;
-import co.com.softka.softkau.ddd.domain.inventario.values.CategoriaId;
+import co.com.softka.softkau.ddd.domain.categoria.Categoria;
+import co.com.softka.softkau.ddd.domain.categoria.values.CategoriaId;
 import co.com.softka.softkau.ddd.domain.prestamo.events.PrestamoCreado;
 import co.com.softka.softkau.ddd.domain.prestamo.events.PrestamoRetornado;
 import co.com.softka.softkau.ddd.domain.prestamo.events.PrestamoSolicitado;

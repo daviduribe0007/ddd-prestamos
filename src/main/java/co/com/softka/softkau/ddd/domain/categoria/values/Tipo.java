@@ -1,13 +1,13 @@
-package co.com.softka.softkau.ddd.domain.inventario.values;
+package co.com.softka.softkau.ddd.domain.categoria.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class CodigoBarras implements ValueObject<String> {
+public class Tipo implements ValueObject<String> {
     private final String value;
 
-    public CodigoBarras(String value) {
+    public Tipo(String value) {
         this.value = Objects.requireNonNull(value);
     }
 

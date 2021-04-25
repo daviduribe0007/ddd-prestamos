@@ -1,4 +1,4 @@
-package co.com.softka.softkau.ddd.domain.inventario.values;
+package co.com.softka.softkau.ddd.domain.categoria.values;
 
 import co.com.sofka.domain.generic.ValueObject;
 

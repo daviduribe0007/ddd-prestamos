@@ -1,9 +1,9 @@
-package co.com.softka.softkau.ddd.domain.inventario.events;
+package co.com.softka.softkau.ddd.domain.categoria.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.softka.softkau.ddd.domain.inventario.Implemento;
-import co.com.softka.softkau.ddd.domain.inventario.values.ImplementoId;
-import co.com.softka.softkau.ddd.domain.inventario.values.Descripcion;
+import co.com.softka.softkau.ddd.domain.categoria.Implemento;
+import co.com.softka.softkau.ddd.domain.categoria.values.ImplementoId;
+import co.com.softka.softkau.ddd.domain.categoria.values.Descripcion;
 
 import java.util.Map;
 
@@ -13,7 +13,7 @@ public class CategoriaCreada extends DomainEvent {
     private final Descripcion descripcion;
 
     public CategoriaCreada(Map<ImplementoId, Implemento> categorias, Descripcion descripcion) {
-        super("ddd.inventario.creado");
+        super("ddd.categoria.creado");
         this.categorias = categorias;
         this.descripcion = descripcion;
     }
