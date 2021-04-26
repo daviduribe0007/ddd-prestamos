@@ -14,6 +14,7 @@ import java.util.Map;
 
 public class Categoria extends AggregateEvent<CategoriaId> {
 
+
     protected Map<ImplementoId, Implemento> implementos;
     protected  Descripcion descripcion;
 

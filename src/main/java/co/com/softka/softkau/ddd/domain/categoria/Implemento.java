@@ -17,14 +17,14 @@ public class Implemento extends Entity<ImplementoId> {
     private Prestamo prestamo;
 
     public Implemento(ImplementoId entityId, Tipo tipo, Descripcion descripcion, CodigoBarras codigoBarras,
-                      EstadoImplemento estadoImplemento, TiempoPrestamo tiempoPrestamo, TiempoPrestamo tiempoPrestamo1, FechaRetorno fechaRetorno,
+                      EstadoImplemento estadoImplemento, TiempoPrestamo tiempoPrestamo, FechaRetorno fechaRetorno,
                       Extraible extraible, Prestamo prestamo) {
         super(entityId);
         this.tipo = tipo;
         this.descripcion = descripcion;
         this.codigoBarras = codigoBarras;
         this.estadoImplemento = estadoImplemento;
-        this.tiempoPrestamo = tiempoPrestamo1;
+        this.tiempoPrestamo = tiempoPrestamo;
         this.fechaRetorno = fechaRetorno;
         this.extraible = extraible;
         this.prestamo = prestamo;

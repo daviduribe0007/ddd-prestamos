@@ -4,6 +4,7 @@ import co.com.sofka.domain.generic.DomainEvent;
 import co.com.softka.softkau.ddd.domain.categoria.Implemento;
 import co.com.softka.softkau.ddd.domain.categoria.values.ImplementoId;
 import co.com.softka.softkau.ddd.domain.categoria.values.Descripcion;
+import co.com.softka.softkau.ddd.domain.categoria.values.TiempoPrestamo;
 
 import java.util.Map;
 
@@ -25,4 +26,5 @@ public class CategoriaCreada extends DomainEvent {
     public Descripcion descripcion() {
         return descripcion;
     }
+
 }
