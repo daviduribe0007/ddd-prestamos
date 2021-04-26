@@ -11,7 +11,7 @@ public class Prioridad implements ValueObject<Integer> {
 
     @Override
     public Integer value() {
-        return null;
+        return value;
     }
 
     public Prioridad  aumentar() {
