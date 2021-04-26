@@ -1,5 +1,6 @@
 package co.com.softka.softkau.ddd.usecase.solicitante;
 
+import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.domain.generic.DomainEvent;
@@ -48,4 +49,26 @@ class SolicitanteCreadoUseCaseTest {
 
     }
 
+    @Test
+    void crearSolicitanteNoValido() {
+        var solicitanteId = new SolicitanteId().of("1234");
+        var nombre = new Nombre("David");
+        var Estado = new Estado(true);
+        var prioridad = new Prioridad(0);
+        Calendar fechaSancion = new GregorianCalendar(1000, 9, 9);
+
+
+        var command = new CrearSolicitante(solicitanteId, nombre,
+                Estado, prioridad, new FechaSancion(fechaSancion));
+        var useCase = new SolicitanteCreadoUseCase();
+
+
+
+        Assertions.assertThrows(BusinessException.class, () -> {
+            UseCaseHandler.getInstance()
+                    .syncExecutor(useCase, new RequestCommand<>(command))
+                    .orElseThrow();
+        }, "El valor de la fecha de sancion no puede ser posterior a la fecha presente");
+
+    }
 }
