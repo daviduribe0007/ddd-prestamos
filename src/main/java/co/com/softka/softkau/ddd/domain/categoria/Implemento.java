@@ -33,6 +33,7 @@ public class Implemento extends Entity<ImplementoId> {
     public void cambiarEstadoPrestamo(Boolean estado){
         this.prestamo = new Prestamo(estado);
     }
+
     public void cambiarEstadoImplemento(String estadoImplemento){
         this.estadoImplemento = new EstadoImplemento(estadoImplemento);
     }

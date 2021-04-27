@@ -11,22 +11,16 @@ import java.util.Map;
 public class CrearCategoria implements Command {
 
     private final CategoriaId entityId;
-    private final Map<ImplementoId, Implemento> implementos;
     private final Descripcion descripcion;
 
-    public CrearCategoria(CategoriaId entityId, Map<ImplementoId, Implemento> implementos, Descripcion descripcion){
+    public CrearCategoria(CategoriaId entityId, Descripcion descripcion){
 
         this.entityId = entityId;
-        this.implementos = implementos;
         this.descripcion = descripcion;
     }
 
     public CategoriaId getEntityId() {
         return entityId;
-    }
-
-    public Map<ImplementoId, Implemento> getImplementos() {
-        return implementos;
     }
 
     public Descripcion getDescripcion() {

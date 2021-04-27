@@ -10,18 +10,13 @@ import java.util.Map;
 
 public class CategoriaCreada extends DomainEvent {
 
-    private final Map<ImplementoId, Implemento> categorias;
     private final Descripcion descripcion;
 
-    public CategoriaCreada(Map<ImplementoId, Implemento> categorias, Descripcion descripcion) {
-        super("ddd.categoria.creado");
-        this.categorias = categorias;
+    public CategoriaCreada( Descripcion descripcion) {
+        super("ddd.categoria.creado");;
         this.descripcion = descripcion;
     }
 
-    public Map<ImplementoId, Implemento> categorias() {
-        return categorias;
-    }
 
     public Descripcion descripcion() {
         return descripcion;

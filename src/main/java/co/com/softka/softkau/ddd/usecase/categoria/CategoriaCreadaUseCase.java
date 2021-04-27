@@ -15,7 +15,7 @@ public class CategoriaCreadaUseCase extends UseCase<RequestCommand<CrearCategori
     public void executeUseCase(RequestCommand<CrearCategoria> input) {
 
         var command= input.getCommand();
-        var  categoria = new Categoria(command.getEntityId(),command.getImplementos(),
+        var  categoria = new Categoria(command.getEntityId(),
                 command.getDescripcion());
 
         emit().onResponse(new ResponseEvents(categoria.getUncommittedChanges()));

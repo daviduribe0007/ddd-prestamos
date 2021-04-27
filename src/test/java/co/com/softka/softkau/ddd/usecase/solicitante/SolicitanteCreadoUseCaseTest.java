@@ -14,7 +14,6 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class SolicitanteCreadoUseCaseTest {
 
@@ -36,13 +35,13 @@ class SolicitanteCreadoUseCaseTest {
                 .orElseThrow()
                 .getDomainEvents();
 
-        SolicitanteCreado event = (SolicitanteCreado) events.get(0);
-        var fecha = command.getFechaSancion().value();
+        SolicitanteCreado solicitanteCreado = (SolicitanteCreado) events.get(0);
+        var fecha = solicitanteCreado.fechaSancion().value();
 
-        Assertions.assertEquals("1234",command.getEntityId().value());
-        Assertions.assertEquals("David",command.getNombre().value());
-        Assertions.assertEquals(true ,command.getEstado().value());
-        Assertions.assertEquals(0,command.getPrioridad().value());
+        Assertions.assertEquals("1234",solicitanteCreado.aggregateRootId());
+        Assertions.assertEquals("David",solicitanteCreado.nombre().value());
+        Assertions.assertEquals(true ,solicitanteCreado.estado().value());
+        Assertions.assertEquals(0,solicitanteCreado.prioridad().value());
         Assertions.assertEquals(2026,fecha.get(Calendar.YEAR));
         Assertions.assertEquals(9,fecha.get(Calendar.MONTH));
         Assertions.assertEquals(9,fecha.get(Calendar.DAY_OF_MONTH));
