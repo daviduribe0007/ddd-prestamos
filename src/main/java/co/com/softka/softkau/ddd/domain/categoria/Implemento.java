@@ -30,6 +30,18 @@ public class Implemento extends Entity<ImplementoId> {
         this.prestamo = prestamo;
     }
 
+
+
+    public Implemento(ImplementoId implementoId, Tipo tipo, Descripcion descripcion, CodigoBarras codigoBarras, EstadoImplemento estadoImplemento, Extraible extraible, Prestamo prestamo) {
+        super(implementoId);
+        this.tipo = tipo;
+        this.descripcion = descripcion;
+        this.codigoBarras = codigoBarras;
+        this.estadoImplemento = estadoImplemento;
+        this.extraible = extraible;
+        this.prestamo = prestamo;
+    }
+
     public void cambiarEstadoPrestamo(Boolean estado){
         this.prestamo = new Prestamo(estado);
     }

@@ -1,17 +1,27 @@
 package co.com.softka.softkau.ddd.domain.categoria;
 
 import co.com.sofka.domain.generic.EventChange;
-import co.com.softka.softkau.ddd.domain.categoria.events.CategoriaCreada;
-import co.com.softka.softkau.ddd.domain.categoria.events.ImplementoPrestado;
-import co.com.softka.softkau.ddd.domain.categoria.events.ImplementoRetornado;
-import co.com.softka.softkau.ddd.domain.categoria.events.ImplementoSolicitado;
+import co.com.softka.softkau.ddd.domain.categoria.events.*;
+
+import java.util.HashMap;
 
 public class CategoriaChange extends EventChange {
     public CategoriaChange(Categoria categoria) {
 
         apply((CategoriaCreada event) -> {
-            categoria.implementos = event.categorias();
             categoria.descripcion = event.descripcion();
+            categoria.implementos = new HashMap<>();
+        });
+
+        apply((ImplementoCreado event)->{
+           categoria.implementos.put(event.implementoId(),
+                   new Implemento(event.implementoId(),
+                           event.tipo(),
+                           event.descripcionImplemento(),
+                           event.codigoBarras(),
+                           event.estadoImplemento(),
+                           event.extraible(),
+                           event.prestamo()));
         });
 
         apply((ImplementoSolicitado event) -> {
