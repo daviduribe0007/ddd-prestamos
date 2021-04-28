@@ -4,6 +4,7 @@ import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.softka.softkau.ddd.domain.categoria.Categoria;
 import co.com.softka.softkau.ddd.domain.categoria.values.CategoriaId;
+import co.com.softka.softkau.ddd.domain.categoria.values.ImplementoId;
 import co.com.softka.softkau.ddd.domain.prestamo.events.PrestamoCreado;
 import co.com.softka.softkau.ddd.domain.prestamo.events.PrestamoRetornado;
 import co.com.softka.softkau.ddd.domain.prestamo.events.PrestamoSolicitado;
@@ -16,7 +17,8 @@ import java.util.Map;
 
 public class Prestamo extends AggregateEvent<PrestamoId> {
 
-    protected Map<CategoriaId, Categoria> inventarioMap;
+    protected ImplementoId implementoId;
+    protected Map<CategoriaId, Categoria> categoriaMap;
     protected SolicitanteId solicitanteId;
     protected EstadoPrestamo estadoPrestamo;
     protected Entregado entregado;
@@ -24,15 +26,16 @@ public class Prestamo extends AggregateEvent<PrestamoId> {
     protected FechaRetorno fechaRetorno;
 
 
-    public Prestamo(PrestamoId entityId, Map<CategoriaId, Categoria> inventarioMap,
+public Prestamo(PrestamoId entityId, ImplementoId implementoId,
                     SolicitanteId solicitanteId, EstadoPrestamo estadoPrestamo, Entregado entregado,
                     FechaPrestamo fechaPrestamo, FechaRetorno fechaRetorno) {
         super(entityId);
+        this.implementoId = implementoId;
         if (entregado.value().equals(false)){
-            appendChange(new PrestamoSolicitado(inventarioMap, solicitanteId, estadoPrestamo,
+            appendChange(new PrestamoSolicitado(implementoId, solicitanteId, estadoPrestamo,
                     entregado, fechaPrestamo, fechaRetorno)).apply();
         }else {
-            appendChange(new PrestamoCreado(inventarioMap, solicitanteId, estadoPrestamo,
+            appendChange(new PrestamoCreado(implementoId, solicitanteId, estadoPrestamo,
                     entregado, fechaPrestamo, fechaRetorno)).apply();
         }
     }

@@ -10,7 +10,7 @@ public class PrestamoChange extends EventChange {
     public PrestamoChange(Prestamo prestamo) {
 
         apply((PrestamoSolicitado event) -> {
-            prestamo.inventarioMap = event.inventarioMap();
+            prestamo.implementoId = event.implementoId();
             prestamo.solicitanteId = event.solicitanteId();
             prestamo.estadoPrestamo = event.estadoPrestamo();
             prestamo.entregado = event.entregado();
@@ -19,7 +19,7 @@ public class PrestamoChange extends EventChange {
         });
 
         apply((PrestamoCreado event) -> {
-            prestamo.inventarioMap = event.inventarioMap();
+            prestamo.implementoId = event.implementoId();
             prestamo.solicitanteId = event.solicitanteId();
             prestamo.estadoPrestamo = event.estadoPrestamo();
             prestamo.entregado = event.entregado();

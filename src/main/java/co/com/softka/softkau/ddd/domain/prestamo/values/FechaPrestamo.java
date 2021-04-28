@@ -9,7 +9,7 @@ public class FechaPrestamo implements ValueObject<Calendar> {
 
     public FechaPrestamo(Calendar value) {
         this.value = value;
-        if (0 <= this.value.getTime().compareTo(Calendar.getInstance().getTime())) {
+        if (0 >= this.value.getTime().compareTo(Calendar.getInstance().getTime())) {
             throw new IllegalArgumentException("El valor de la fecha Prestamo no puede ser anterior a la fecha presente");
         }
     }

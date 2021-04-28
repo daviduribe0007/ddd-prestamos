@@ -12,7 +12,7 @@ import co.com.softka.softkau.ddd.domain.solicitante.values.*;
 import java.util.Calendar;
 import java.util.Date;
 
-public class SolicitanteCreadoUseCase extends UseCase<RequestCommand<CrearSolicitante>, ResponseEvents> {
+public class CrearSolicitanteUseCase extends UseCase<RequestCommand<CrearSolicitante>, ResponseEvents> {
     @Override
     public void executeUseCase(RequestCommand<CrearSolicitante> input) {
 

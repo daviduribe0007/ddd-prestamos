@@ -19,7 +19,7 @@ import java.util.List;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class ImplementoCreadoUseCaseTest {
+class CrearImplementoUseCaseTest {
 
     @Mock
     private DomainEventRepository repository;
@@ -37,7 +37,7 @@ class ImplementoCreadoUseCaseTest {
         var prestamo = new Prestamo(false);
         var command = new CrearImplemento(categoriaId,implementoId,tipo,descripcionImplemento,CodigoBarras,
                 estadoImplemento,extraible,prestamo);
-        var useCase  = new ImplementoCreadoUseCase();
+        var useCase  = new CrearImplementoUseCase();
 
         when(repository.getEventsBy(categoriaId.value())).thenReturn(eventStored(categoriaId,descripcion));
         useCase.addRepository(repository);

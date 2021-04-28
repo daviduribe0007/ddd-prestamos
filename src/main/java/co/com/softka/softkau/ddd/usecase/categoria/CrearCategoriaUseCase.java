@@ -10,7 +10,7 @@ import co.com.softka.softkau.ddd.domain.solicitante.Solicitante;
 
 import java.util.Calendar;
 
-public class CategoriaCreadaUseCase extends UseCase<RequestCommand<CrearCategoria>, ResponseEvents> {
+public class CrearCategoriaUseCase extends UseCase<RequestCommand<CrearCategoria>, ResponseEvents> {
     @Override
     public void executeUseCase(RequestCommand<CrearCategoria> input) {
 

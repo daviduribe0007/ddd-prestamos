@@ -7,7 +7,7 @@ import co.com.sofka.business.support.ResponseEvents;
 import co.com.softka.softkau.ddd.domain.categoria.Categoria;
 import co.com.softka.softkau.ddd.domain.categoria.commands.CrearImplemento;
 
-public class ImplementoCreadoUseCase extends UseCase<RequestCommand<CrearImplemento>, ResponseEvents> {
+public class CrearImplementoUseCase extends UseCase<RequestCommand<CrearImplemento>, ResponseEvents> {
     @Override
     public void executeUseCase(RequestCommand<CrearImplemento> input) {
         var command= input.getCommand();

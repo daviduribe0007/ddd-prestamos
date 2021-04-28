@@ -15,7 +15,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 
-class SolicitanteCreadoUseCaseTest {
+class CrearSolicitanteUseCaseTest {
 
     @Test
     void crearSolicitante(){
@@ -28,7 +28,7 @@ class SolicitanteCreadoUseCaseTest {
 
         var command = new CrearSolicitante(solicitanteId,nombre,
                 Estado,prioridad,new FechaSancion(fechaSancion));
-        var useCase = new SolicitanteCreadoUseCase();
+        var useCase = new CrearSolicitanteUseCase();
 
         List<DomainEvent> events = UseCaseHandler.getInstance()
                 .syncExecutor(useCase, new RequestCommand<>(command))
@@ -59,7 +59,7 @@ class SolicitanteCreadoUseCaseTest {
 
         var command = new CrearSolicitante(solicitanteId, nombre,
                 Estado, prioridad, new FechaSancion(fechaSancion));
-        var useCase = new SolicitanteCreadoUseCase();
+        var useCase = new CrearSolicitanteUseCase();
 
 
 
